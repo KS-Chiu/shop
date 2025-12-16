@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-menu[data-bs-popper] {
+            left: -125px;
+        }
+
+        .circle {
+            width: 40px;
+            height: 40px;
+        }
+
+        @media (max-width:768px) {
+            .circle {
+                width: 30px;
+                height: 30px;
+            }
+        }
+
+        @media (max-width:577px) {
+            .circle {
+                width: 20px;
+                height: 20px;
+            }
+        }
+
+        .shopstep {
+            width: 65%;
+        }
+
+        @media (max-width:1400px) {
+            .shopstep {
+                width: 85%;
+            }
+        }
+
+        @media (max-width:1200px) {
+            .shopstep {
+                width: unset;
+            }
+        }
+
+        .footer-img {
+            width: 80px;
+        }
+
+        .step {
+            width: max-content;
+        }
+
+        @media (max-width:767px) {
+            .step {
+                width: 80px;
+            }
+        }
+
+        @media (max-width:575px) {
+            .step {
+                width: 50px;
+            }
+        }
+
+        .nextstep {
+            width: 150px;
+            height: 45px;
+        }
+
+        .point {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- =+=+=+=+=+=+=+=+=+=+=+=+=+= NAV =+=+=+=+=+=+=+=+=+=+=+=+=+= -->
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="./img/logo.webp" alt="herls" width="50" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">SHOES</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">BAGS</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">STORE</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link cart" aria-disabled="true"><i class="bi bi-bag"></i></a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle user" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Login</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =+=+=+=+=+=+=+=+=+=+=+=+=+= NAV / CART =+=+=+=+=+=+=+=+=+=+=+=+=+= -->
+
+    <main class="container-fluid bg-secondary bg-opacity-50 p-5">
+        <section class="shopstep container bg-light p-5 shadow bg-body-tertiary rounded fs-1">
+            購物車
+            <div
+                class="d-flex justify-content-between mt-lg-5 mt-md-4 mt-sm-3 mb-5 mb-sm-4 mb-md-0 pb-5 px-lg-5 px-md-4 px-sm-0 fs-6">
+                <div class="d-flex flex-row align-items-center flex-fill me-2 me-md-4">
+                    <div
+                        class="circle col-1 position-relative bg-success rounded-circle me-1 me-md-2 pt-md-2 pt-sm-1 text-white text-center">
+                        1
+                        <div class="step position-absolute top-100 start-50 translate-middle-x text-black">確認購物車
+                        </div>
+                    </div>
+                    <div class="progress col-11" role="progressbar" aria-label="Basic example" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+                        <div class="progress-bar bg-success" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center flex-fill ms-4 ms-md-4 me-2 me-md-4">
+                    <div
+                        class="circle col-1 position-relative bg-success rounded-circle me-1 me-md-2 pt-md-2 pt-sm-1 text-white text-center">
+                        2
+                        <div class="step position-absolute top-100 start-50 translate-middle-x text-black">付款與運送方式
+                        </div>
+                    </div>
+                    <div class="progress col-11" role="progressbar" aria-label="Basic example" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+                        <div class="progress-bar bg-success" style="width: 25%"></div>
+                    </div>
+                </div>
+                <div class="d-flex flex-row align-items-center flex-fill ms-4 ms-md-4 me-2 me-md-4">
+                    <div
+                        class="circle col-1 position-relative bg-success rounded-circle me-1 me-md-2 pt-md-2 pt-sm-1 text-white text-center">
+                        3
+                        <div class="step position-absolute top-100 start-50 translate-middle-x text-black">填寫收件資料
+                        </div>
+                    </div>
+                    <div class="progress col-11" role="progressbar" aria-label="Basic example" aria-valuenow="0"
+                        aria-valuemin="0" aria-valuemax="100" style="height: 7px">
+                        <div class="progress-bar bg-success" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="d-flex align-items-center ms-4 ms-md-4">
+                    <div
+                        class="circle col-1 position-relative bg-success rounded-circle me-2 pt-md-2 pt-sm-1 text-white text-center">
+                        4
+                        <div class="step position-absolute top-100 start-50 translate-middle-x text-black">訂購完成
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="fs-2 mt-5">
+                付款方式
+                <div class="w-full ps-5 mt-4 mb-5 fs-3">
+                    <div class="form-check py-4">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault1" checked>
+                        <label class="form-check-label" for="radioDefault1">
+                            信用卡付款
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="form-check py-4">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault2">
+                        <label class="form-check-label" for="radioDefault2">
+                            網路ATM
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="form-check py-4">
+                        <input class="form-check-input" type="radio" name="radioDefault" id="radioDefault3">
+                        <label class="form-check-label" for="radioDefault3">
+                            超商代碼
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="fs-2 mt-5">
+                運送方式
+                <div class="w-full ps-5 mt-4 mb-5 fs-3">
+                    <div class="form-check py-4">
+                        <input class="form-check-input" type="radio" name="radioDefault2" id="radioDefault4" checked>
+                        <label class="form-check-label" for="radioDefault4">
+                            黑貓宅配
+                        </label>
+                    </div>
+                    <hr>
+                    <div class="form-check py-4">
+                        <input class="form-check-input" type="radio" name="radioDefault2" id="radioDefault5">
+                        <label class="form-check-label" for="radioDefault5">
+                            超商店到店
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row my-4 fs-6 lh-lg">
+                <div class="text-end col-10">
+                    <div>數量：</div>
+                    <div>小計：</div>
+                    <div>運費：</div>
+                    <div>總計：</div>
+                </div>
+                <div class="text-end col-2">
+                    <div>3</div>
+                    <div>$7896</div>
+                    <div>$60</div>
+                    <div>$7956</div>
+                </div>
+            </div>
+            <hr>
+            <div class="row my-5">
+                <div class="d-grid col justify-content-start">
+                    <a href="">
+                        <button class="nextstep btn btn-outline-primary btn-lg fs-6" type="button">上一步</button>
+                    </a>
+                </div>
+                <div class="d-grid col justify-content-end">
+                    <button class="nextstep btn btn-primary btn-lg fs-6" type="button">下一步</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- =+=+=+=+=+=+=+=+=+=+=+=+=+= CART / FOOTER =+=+=+=+=+=+=+=+=+=+=+=+=+= -->
+
+    <!-- container 和 row 儘量分開, 用上下層撰寫, 因為他們的padding和margin默認設定不同, container是padding, row是margin -->
+    <!-- 或者是不需要container -->
+    <footer>
+        <section class="px-5 my-5">
+            <div class="row px-4 text-center text-sm-start">
+                <div class="col-12 col-md-4 mb-4 mb-md-0 text-center">
+                    <img class="footer-img" src="./img/logo.png" alt="">
+                    <div class="">HERLS，Her Lovely Shoes。</div>
+                    <div class=" fs-6">
+                        用細膩的品味，設計一雙經典好鞋。<br>
+                        穿一種態度，在流行裡找到屬於自己的美好氛圍。</div>
+                </div>
+                <div class="col-12 col-sm-3 col-md-2 mb-3 mb-sm-0">
+                    <h6>CATEGORIES</h6>
+                    <ul class="nav flex-column">
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-2">
+                    <h6>CATEGORIES</h6>
+                    <ul class="nav flex-column">
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-2">
+                    <h6>CATEGORIES</h6>
+                    <ul class="nav flex-column">
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-3 col-md-2">
+                    <h6>CATEGORIES</h6>
+                    <ul class="nav flex-column">
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                        <li>LINK</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="d-flex flex-nowrap justify-content-between bg-secondary bg-opacity-25 py-3 px-5 m-0">
+            <div class="col-9">© 2017–2025 英屬維京群島商加威國際有限公司台灣分公司 · Privacy · Terms</div>
+            <div class="col-auto">
+                <i class="bi bi-facebook px-1"></i>
+                <i class="bi bi-twitter px-1"></i>
+                <i class="bi bi-instagram px-1"></i>
+            </div>
+        </section>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
