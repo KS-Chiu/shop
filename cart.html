@@ -300,65 +300,19 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <!-- <script>
-        // 取得資料
-        let shoppingData = localStorage.getItem(('smallcards'))
-        console.log(localStorage.getItem('smallcards'));
-        // 把資料轉換成陣列或物件
-        console.log(JSON.parse(shoppingData));
-        // 資料顯示在畫面上
-        const shoppingList = document.querySelector('#shopping-list')
-        let shoppingItem = JSON.parse(shoppingData)
-        shoppingItem.forEach(item => {
-            shoppingList.innerHTML += `
-                    <div class="row my-5 fs-5 w-100">
-                        <div class="col-1 me-2 d-flex align-items-center" style="min-width: 60px;">
-                            <img class="product-img rounded-circle" src=" ./img/1.webp" alt="">
-                        </div>
-                        <div class="col">
-                            <div class="product-name">Spring Select</div>
-                            <div class="product-num">#260301</div>
-                        </div>
-                        <div
-                            class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
-                            <div class="d-flex input-group-sm">
-                                <button class="point border-0">－</button>
-                                <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
-                                <button class="point border-0">＋</button>
-                            </div>
-                            <span class="ms-sm-4 ">$2631</span>
-                        </div>
-                    </div>
-                    <hr>
-            `;
-        });
-
-    </script> -->
-
     <script>
-        // 取得購物車資料
-        // 全部商品
         let shoppingData = JSON.parse(localStorage.getItem('smallcards'))
-        // 點擊過的商品
         let shoppingArr = JSON.parse(localStorage.getItem('shopping'))
         console.log(shoppingData, shoppingArr);
 
-
-        // 取出全部商品中包含購物車的資料 如點擊過的商品中有和全部商品的title相同的物品則回傳, 其餘過濾(fliter)
-        // 通過比較title這一項來取出陣列中的對應物件, 畢竟shoppingArr就只是商品title的字串而已只會有title的文字(詳情可以看homepage中的資料取得方式)
         const nowshopping = shoppingData.filter((item) => {
-            console.log(item.title);
-            console.log(shoppingArr.includes(item.title));
+            item['total'] = 1
             if (shoppingArr.includes(item.title)) {
                 return item;
             }
         })
-        console.log(nowshopping);
-        
 
-        // 找到購物車列表的div
         const shoppingList = document.querySelector('#shopping-list')
-        // 每個在上面回傳的點擊過的商品都要在這個div底下新增HTML
         nowshopping.forEach((item) => {
             shoppingList.innerHTML += `
                      <div class="row my-5 fs-5 w-100">
@@ -372,16 +326,33 @@
                         <div
                             class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
                             <div class="d-flex input-group-sm">
-                                <button class="point border-0">－</button>
-                                <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
-                                <button class="point border-0">＋</button>
+                                <button class="btn-down point border-0">－</button>
+                                <input type="text" class="form-control" value="${item.total}" data-shoppingname="${item.title}" style="width: 30px; height: 35px;">
+                                <button class="btn-up point border-0">＋</button>
                             </div>
                             <span class="ms-sm-4 ">$2631</span>
                         </div>
                     </div>
                     <hr>
         `;
-        }) 
+        })
+
+        let btnDown = document.querySelectorAll('.btn-down')
+        let btnUp = document.querySelectorAll('.btn-up')
+
+        btnDown.forEach((item) => {
+            item.addEventListener('click', () => {
+                console.log(item);
+
+            })
+        })
+
+        btnUp.forEach((item) => {
+            item.addEventListener('click', () => {
+                console.log(item);
+
+            })
+        })
     </script>
 </body>
 
