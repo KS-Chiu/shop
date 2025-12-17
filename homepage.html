@@ -630,6 +630,7 @@
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">${item.title}</h5>
                             <p class="card-text flex-fill">${item.describe}</p>
+                            <button type="button" class="shopping-btn btn btn-warning" data-shoppingname="${item.title}">加入購物車</button>
                         </div>
                     </div>
                 </div>
@@ -642,6 +643,41 @@
 
         localStorage.setItem('smallcards', JSON.stringify(smallcards));
     </script>
+
+    <script>
+        // 選擇產品的方法
+        // 把選擇到的產品記錄起來
+        let shoppingBtns = document.querySelectorAll('.shopping-btn')
+        let shopping = [];
+        // 按鈕可以點擊 -> 監聽
+        shoppingBtns.forEach((item) => {
+            // dataset可以取得HTML的內容名稱
+            console.log(item.dataset.shoppingname);
+            item.addEventListener('click', function () {
+                console.log('有點擊', item.dataset.shoppingname);
+                // 點到的是哪個資料
+                console.log(shopping);
+                shopping.push(item.dataset.shoppingname);
+                console.log(shopping);
+
+                // 要判斷重複的內容
+                // console.log(shopping.find(item.dataset.shoppingname));
+                // console.log(shopping.includes(item.dataset.shoppingname));
+
+                if (!shopping.includes(item.dataset.shoppingname)) {
+                    shopping.push(item.dataset.shoppingname);
+                }
+
+                // 把點選的資料送達到下一個頁面
+                localStorage.setItem('shopping', JSON.stringify(shopping));
+            })
+        })
+
+        // 紀錄資料
+
+    </script>
+
+    
 </body>
 
 </html>

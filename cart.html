@@ -300,7 +300,7 @@
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
 
-    <script>
+    <!-- <script>
         // 取得資料
         let shoppingData = localStorage.getItem(('smallcards'))
         console.log(localStorage.getItem('smallcards'));
@@ -333,7 +333,46 @@
             `;
         });
 
+    </script> -->
 
+    <script>
+        // 取得購物車資料
+
+        let shoppingData = JSON.parse(localStorage.getItem('smallcards'))
+        let shoppingArr = JSON.parse(localStorage.getItem('shopping'))
+
+        const nowshopping = shoppingData.filter((item) => {
+            console.log(item.title);
+            console.log(shoppingArr.includes(item.title));
+            if (shoppingArr.includes(item.title)) {
+                return item;
+            }
+        })
+
+        const shoppingList = document.querySelector('#shopping-list')
+        nowshopping.forEach((item) => {
+            shoppingList.innerHTML += `
+                     <div class="row my-5 fs-5 w-100">
+                        <div class="col-1 me-2 d-flex align-items-center" style="min-width: 60px;">
+                            <img class="product-img rounded-circle" src="${item.img}" alt="">
+                        </div>
+                        <div class="col">
+                            <div class="product-name">${item.title}</div>
+                            <div class="product-num">#260301</div>
+                        </div>
+                        <div
+                            class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
+                            <div class="d-flex input-group-sm">
+                                <button class="point border-0">－</button>
+                                <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
+                                <button class="point border-0">＋</button>
+                            </div>
+                            <span class="ms-sm-4 ">$2631</span>
+                        </div>
+                    </div>
+                    <hr>
+        `;
+        }) 
     </script>
 </body>
 
