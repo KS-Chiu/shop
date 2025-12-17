@@ -56,9 +56,6 @@
 </style>
 
 <body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
     <!-- =+=+=+=+=+=+=+=+=+=+=+=+=+= NAV =+=+=+=+=+=+=+=+=+=+=+=+=+= -->
 
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -515,6 +512,11 @@
         </section>
     </footer>
 
+    <!-- 外部JS先寫, 再寫我們自己的 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+
     <script>
         // 資料來源在專案裡面的話, 此時會撰寫路徑
         // 資料來源在資料庫, base64 -> 解析 (比較少用, 因為會造成資料庫過大)
@@ -634,7 +636,11 @@
         `;
         })
 
+        // 帶資料到後面的頁面
+        // localStorage / sessionStorage
+        // localStorage.setItem(key, value);
 
+        localStorage.setItem('smallcards', JSON.stringify(smallcards));
     </script>
 </body>
 

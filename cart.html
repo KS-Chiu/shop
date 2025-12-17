@@ -201,61 +201,9 @@
             <hr>
             <div class="fs-2 mt-5">
                 訂單明細
-                <div class="row my-5 fs-5 w-100">
-                    <div class="col-1 me-2 d-flex align-items-center" style="min-width: 60px;">
-                        <img class="product-img rounded-circle" src=" ./img/1.webp" alt="">
-                    </div>
-                    <div class="col">
-                        <div class="product-name">Spring Select</div>
-                        <div class="product-num">#260301</div>
-                    </div>
-                    <div class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
-                        <div class="d-flex input-group-sm">
-                            <button class="point border-0">－</button>
-                            <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
-                            <button class="point border-0">＋</button>
-                        </div>
-                        <span class="ms-sm-4 ">$2631</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="row my-5 fs-5 w-100">
-                    <div class="col-1 me-2 d-flex align-items-center" style="min-width: 60px;">
-                        <img class="product-img rounded-circle" src=" ./img/2.webp" alt="">
-                    </div>
-                    <div class="col">
-                        <div class="product-name">Autum Select</div>
-                        <div class="product-num">#260302</div>
-                    </div>
-                    <div class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
-                        <div class="d-flex input-group-sm">
-                            <button class="point border-0">－</button>
-                            <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
-                            <button class="point border-0">＋</button>
-                        </div>
-                        <span class="ms-sm-4 ">$2631</span>
-                    </div>
-                </div>
-                <hr>
-                <div class="row my-5 fs-5 w-100">
-                    <div class="col-1 me-2 d-flex align-items-center" style="min-width: 60px;">
-                        <img class="product-img rounded-circle" src="./img/3.webp" alt="">
-                    </div>
-                    <div class="col">
-                        <div class="product-name">Winter Select</div>
-                        <div class="product-num">#260303</div>
-                    </div>
-                    <div class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
-                        <div class="d-flex input-group-sm">
-                            <button class="point border-0">－</button>
-                            <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
-                            <button class="point border-0">＋</button>
-                        </div>
-                        <span class="ms-sm-4 ">$2631</span>
-                    </div>
+                <div id="shopping-list">
                 </div>
             </div>
-            <hr>
             <div class="row my-4 fs-6 lh-lg">
                 <div class="text-end col-9 col-sm-10">
                     <div>數量：</div>
@@ -351,6 +299,42 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+
+    <script>
+        // 取得資料
+        let shoppingData = localStorage.getItem(('smallcards'))
+        console.log(localStorage.getItem('smallcards'));
+        // 把資料轉換成陣列或物件
+        console.log(JSON.parse(shoppingData));
+        // 資料顯示在畫面上
+        const shoppingList = document.querySelector('#shopping-list')
+        let shoppingItem = JSON.parse(shoppingData)
+        shoppingItem.forEach(item => {
+            shoppingList.innerHTML += `
+                    <div class="row my-5 fs-5 w-100">
+                        <div class="col-1 me-2 d-flex align-items-center" style="min-width: 60px;">
+                            <img class="product-img rounded-circle" src=" ./img/1.webp" alt="">
+                        </div>
+                        <div class="col">
+                            <div class="product-name">Spring Select</div>
+                            <div class="product-num">#260301</div>
+                        </div>
+                        <div
+                            class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
+                            <div class="d-flex input-group-sm">
+                                <button class="point border-0">－</button>
+                                <input type="text" class="form-control" value="1" style="width: 30px; height: 35px;">
+                                <button class="point border-0">＋</button>
+                            </div>
+                            <span class="ms-sm-4 ">$2631</span>
+                        </div>
+                    </div>
+                    <hr>
+            `;
+        });
+
+
+    </script>
 </body>
 
 </html>
