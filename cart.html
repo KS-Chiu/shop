@@ -341,8 +341,11 @@
         let shoppingData = JSON.parse(localStorage.getItem('smallcards'))
         // 點擊過的商品
         let shoppingArr = JSON.parse(localStorage.getItem('shopping'))
+        console.log(shoppingData, shoppingArr);
 
-        // 全部商品中是否有點擊過的商品 => 如有則回傳, 其餘過濾(fliter)
+
+        // 取出全部商品中包含購物車的資料 如點擊過的商品中有和全部商品的title相同的物品則回傳, 其餘過濾(fliter)
+        // 通過比較title這一項來取出陣列中的對應物件, 畢竟shoppingArr就只是商品title的字串而已只會有title的文字(詳情可以看homepage中的資料取得方式)
         const nowshopping = shoppingData.filter((item) => {
             console.log(item.title);
             console.log(shoppingArr.includes(item.title));
@@ -350,6 +353,8 @@
                 return item;
             }
         })
+        console.log(nowshopping);
+        
 
         // 找到購物車列表的div
         const shoppingList = document.querySelector('#shopping-list')

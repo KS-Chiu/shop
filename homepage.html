@@ -636,6 +636,7 @@
                 </div>
         `;
         })
+        // data- 後面可以自定義屬性名稱及值, 上面的HTML中在button上面自定義了一個shoppingname的屬性, 值為${item.title}
 
         // 帶資料到後面的頁面
         // localStorage / sessionStorage
@@ -648,36 +649,35 @@
         // 選擇產品的方法
         // 把選擇到的產品記錄起來
         let shoppingBtns = document.querySelectorAll('.shopping-btn')
+        // 先給一個空陣列, 之後再把資料放進去
         let shopping = [];
-        // 按鈕可以點擊 -> 監聽
+        // 按鈕點擊 -> 監聽
         shoppingBtns.forEach((item) => {
-            // dataset可以取得HTML的內容名稱
             console.log(item.dataset.shoppingname);
+            // dataset -> 撈出所有 data- 開頭的屬性的值
+            // dataset.shoppingname -> 撈出所有 data-shoppingname 開頭的屬性的值
             item.addEventListener('click', function () {
                 console.log('有點擊', item.dataset.shoppingname);
-                // 點到的是哪個資料
-                console.log(shopping);
+                // 點擊時把 data-shoppingname 放進 shopping 陣列裡
                 shopping.push(item.dataset.shoppingname);
-                console.log(shopping);
+                console.log(shopping)
 
-                // 要判斷重複的內容
+                // 如果陣列中不存在這個title就把這個title放進去(防止重複)
                 // console.log(shopping.find(item.dataset.shoppingname));
                 // console.log(shopping.includes(item.dataset.shoppingname));
-
                 if (!shopping.includes(item.dataset.shoppingname)) {
                     shopping.push(item.dataset.shoppingname);
                 }
 
-                // 把點選的資料送達到下一個頁面
+                // 紀錄資料
+                // 讓點選的資料可以送達到下一個頁面
                 localStorage.setItem('shopping', JSON.stringify(shopping));
             })
         })
 
-        // 紀錄資料
-
     </script>
 
-    
+
 </body>
 
 </html>
