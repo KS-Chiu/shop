@@ -337,10 +337,12 @@
 
     <script>
         // 取得購物車資料
-
+        // 全部商品
         let shoppingData = JSON.parse(localStorage.getItem('smallcards'))
+        // 點擊過的商品
         let shoppingArr = JSON.parse(localStorage.getItem('shopping'))
 
+        // 全部商品中是否有點擊過的商品 => 如有則回傳, 其餘過濾(fliter)
         const nowshopping = shoppingData.filter((item) => {
             console.log(item.title);
             console.log(shoppingArr.includes(item.title));
@@ -349,7 +351,9 @@
             }
         })
 
+        // 找到購物車列表的div
         const shoppingList = document.querySelector('#shopping-list')
+        // 每個在上面回傳的點擊過的商品都要在這個div底下新增HTML
         nowshopping.forEach((item) => {
             shoppingList.innerHTML += `
                      <div class="row my-5 fs-5 w-100">
