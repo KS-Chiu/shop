@@ -267,7 +267,8 @@
                             <td class="text-center">每年一次</td>
                             <td class="text-center">1,399／年</td>
                             <td class="form-check m-0">
-                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault" id="radioDefault1">
+                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault"
+                                    id="radioDefault1">
                                 <label class="form-check-label" for="radioDefault1"></label>
                             </td>
                         </tr>
@@ -277,7 +278,8 @@
                             <td class="text-center">每年一次</td>
                             <td class="text-center">2,000／年</td>
                             <td class="form-check m-0">
-                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault" id="radioDefault2">
+                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault"
+                                    id="radioDefault2">
                                 <label class="form-check-label" for="radioDefault2"></label>
                             </td>
                         </tr>
@@ -287,7 +289,8 @@
                             <td class="text-center">每年二次</td>
                             <td class="text-center">7,999／年</td>
                             <td class="form-check m-0">
-                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault" id="radioDefault3">
+                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault"
+                                    id="radioDefault3">
                                 <label class="form-check-label" for="radioDefault3"></label>
                             </td>
                         </tr>
@@ -297,7 +300,8 @@
                             <td class="text-center">每年四次</td>
                             <td class="text-center">15,800／年</td>
                             <td class="form-check m-0">
-                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault" id="radioDefault4">
+                                <input class="form-check-input pricing-btn" type="radio" name="radioDefault"
+                                    id="radioDefault4">
                                 <label class="form-check-label" for="radioDefault4"></label>
                             </td>
                         </tr>
@@ -325,48 +329,8 @@
             </div>
         </div>
         <div class="container my-5 pb-4">
-            <div class="row row-cols-1 row-cols-md-4 g-4">
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <img src="./img/美拉德1.webp" class="card-img-top" alt="...">
-                        <div class="card-body d-flex flex-column pt-0">
-                            <div class="fs-6 pb-2">咖啡色</div>
-                            <h5 class="card-title fs-3 pt-2 pb-4">全真皮彈力坑條拼接後拉鍊方頭粗跟短靴</h5>
-                            <p class="card-text flex-fill">方頭鞋楦，真皮鞋墊，後拉鍊設計，兩側彈力坑條拼接造型。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <img src="./img/美拉德2.webp" class="card-img-top" alt="...">
-                        <div class="card-body d-flex flex-column pt-0">
-                            <div class="fs-6 pb-2">棕色</div>
-                            <h5 class="card-title fs-3 pt-2 pb-4">全真皮立體結飾釦環造型平底樂福鞋</h5>
-                            <p class="card-text flex-fill">橢圓頭鞋楦，真皮鞋墊，立體結飾釦環造型，隱藏式後跟貼。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <img src="./img/美拉德3.webp" class="card-img-top" alt="...">
-                        <div class="card-body d-flex flex-column pt-0">
-                            <div class="fs-6 pb-2">深棕色</div>
-                            <h5 class="card-title fs-3 pt-2 pb-4">全真皮車線造型方頭牛津鞋</h5>
-                            <p class="card-text flex-fill">高級全真皮，方頭鞋楦，鞋面特殊車線造型X配色鞋帶，加厚鞋舌。</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card h-100 p-4">
-                        <img src="./img/美拉德4.webp" class="card-img-top" alt="...">
-                        <div class="card-body d-flex flex-column pt-0">
-                            <div class="fs-6 pb-2">可可色</div>
-                            <h5 class="card-title fs-3 pt-2 pb-4">全真皮素面橢圓頭休閒德比鞋</h5>
-                            <p class="card-text flex-fill">高級全真皮，橢圓頭鞋楦，經典素面設計X開放式鞋襟，隱藏式後腫貼。</p>
-                        </div>
-                    </div>
-                </div>
+            <div id="card-list" class="row row-cols-1 row-cols-md-4 g-4">
+                
             </div>
         </div>
 
@@ -626,6 +590,65 @@
             </div>
         </section>
     </footer>
+
+    <script>
+        // 資料來源在專案裡面的話, 此時會撰寫路徑
+        // 資料來源在資料庫, base64 -> 解析 (比較少用, 因為會造成資料庫過大)
+
+        // 物件的索引值 key 的命名不能用 - 但可以用底線, 因為 - 代表的是運算
+        // 小駝峰方式撰寫比較好
+
+        let cards = [
+            {
+                'img': './img/美拉德1.webp',
+                'smallTitle': '咖啡色',
+                'title': '全真皮彈力坑條拼接後拉鍊方頭粗跟短靴',
+                'describe': '方頭鞋楦，真皮鞋墊，後拉鍊設計，兩側彈力坑條拼接造型。'
+            },
+            {
+                'img': './img/美拉德2.webp',
+                'smallTitle': '棕色',
+                'title': '全真皮立體結飾釦環造型平底樂福鞋',
+                'describe': '橢圓頭鞋楦，真皮鞋墊，立體結飾釦環造型，隱藏式後跟貼。'
+            },
+            {
+                'img': './img/美拉德3.webp',
+                'smallTitle': '深棕色',
+                'title': '全真皮車線造型方頭牛津鞋',
+                'describe': '高級全真皮，方頭鞋楦，鞋面特殊車線造型X配色鞋帶，加厚鞋舌。'
+            },
+            {
+                'img': './img/美拉德4.webp',
+                'smallTitle': '可可色',
+                'title': '全真皮素面橢圓頭休閒德比鞋',
+                'describe': '高級全真皮，橢圓頭鞋楦，經典素面設計X開放式鞋襟，隱藏式後腫貼。'
+            },
+        ];
+        console.log(cards);
+        const cardlist = document.querySelector('#card-list')
+        cardlist.innerHTML = '';
+        // forEach -> 可以帶參數進去
+        // 會從陣列裡面抓取一筆資料到回圈裡面, 可以再透過自定義的參數名稱帶進來(item)
+        cards.forEach((item) => {
+            cardlist.innerHTML += `
+                <div class="col">
+                    <div class="card h-100 p-4">
+                        <img src="${item.img}" class="card-img-top" alt="...">
+                        <div class="card-body d-flex flex-column pt-0">
+                            <div class="fs-6 pb-2">${item.smallTitle}</div>
+                            <h5 class="card-title fs-3 pt-2 pb-4">${item.title}</h5>
+                            <p class="card-text flex-fill">${item.describe}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        `;
+        })
+
+
+        console.log(cardlist);
+
+    </script>
 </body>
 
 </html>
