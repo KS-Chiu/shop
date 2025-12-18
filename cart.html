@@ -396,6 +396,10 @@
             })
         })
 
+    </script>
+
+    <script>
+
         function calPrice() {
 
             // 總金額的計算
@@ -411,16 +415,16 @@
                 // 計算數量
                 spCount += changeItem.total;
                 // 金額計算
-                spSum += changeItem.total + parseInt(changeItem.price);
+                spSum += changeItem.total * parseInt(changeItem.price);
             });
 
             // 取得運費資料
             // 先裝一個變數, 再處理資料
-            let spTax = parseFloat(String(shoppingTax.innerHTML).replace('$', ''));
+            spTax = parseFloat(String(shoppingTax.innerHTML).replace('$', ''));
 
             shoppingCount.innerHTML = `${spCount}`;
-            shoppingCount.innerHTML = `$${spSum}`;
-            shoppingCount.innerHTML = `$${spSum + spTax}`;
+            shoppingSum.innerHTML = `$${spSum}`;
+            shoppingTotal.innerHTML = `$${spSum + spTax}`;
         }
     </script>
 </body>
