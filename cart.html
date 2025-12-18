@@ -312,7 +312,6 @@
         })
 
         const shoppingList = document.querySelector('#shopping-list')
-        
         nowshopping.forEach((item) => {
             shoppingList.innerHTML += `
                      <div class="row my-5 fs-5 w-100">
@@ -326,9 +325,9 @@
                         <div
                             class="col-2 col-md-4 d-flex flex-column flex-sm-row justify-content-end align-items-center">
                             <div class="d-flex input-group-sm">
-                                <button class="btn-down point border-0">－</button>
+                                <button class="btn-click point border-0" data-cal="-1">－</button>
                                 <input type="text" class="form-control" value="${item.total}" data-shoppingname="${item.title}" style="width: 30px; height: 35px;">
-                                <button class="btn-up point border-0">＋</button>
+                                <button class="btn-click point border-0" data-cal="1">＋</button>
                             </div>
                             <span class="ms-sm-4 ">$2631</span>
                         </div>
@@ -337,69 +336,32 @@
         `;
         })
 
-        let btnDown = document.querySelectorAll('.btn-down')
-        let btnUp = document.querySelectorAll('.btn-up')
-
-        btnDown.forEach((item) => {
+        let btnClick = document.querySelectorAll('.btn-click')
+        btnClick.forEach((item) => {
             item.addEventListener('click', () => {
-                // 取得物件的parent層級
-                console.log(item.parentNode);
-                // 取得物件的parent層級的子層級的第二個(因key排序為0, 1, 2...)
-                //找到輸入框
-                console.log(item.parentNode.children[1]);
-
-                let down = item.parentNode.children[1].value;
-                if (down > 1) {
-                    down--;
-                }
-                // 找到陣列中的資料進行更新
+                let cal = item.parentNode.children[1].value;
                 let originPrice = 0;
+
+                cal = parseInt(cal) + parseInt(item.dataset.cal)
+
+                if (cal <= 1) cal = 1;
+
                 nowshopping = nowshopping.filter((changeItem) => {
-                    // 把更新後的資料 down 進行回傳
                     if (changeItem.title === item.parentNode.children[1].dataset.shoppingname) {
-                        changeItem['total'] = down;
-                        item.parentNode.children[1].value = down;
+                        changeItem['total'] = cal;
+                        item.parentNode.children[1].value = cal;
                         originPrice = parseInt(changeItem.price)
                     }
                     return changeItem;
                 })
-                console.log(nowshopping);
-                item.parentNode.parentNode.children[1].innerHTML = `$${String(originPrice * down)}`;
+                item.parentNode.parentNode.children[1].innerHTML = `$${String(originPrice * cal)}`;
                 calPrice();
             })
+            item.dataset.cal
         })
-
-        btnUp.forEach((item) => {
-            item.addEventListener('click', () => {
-                let up = item.parentNode.children[1].value;
-                up++;
-                console.log(up);
-
-                let originPrice = 0;
-                let nowshopping01 = nowshopping.filter((changeItem) => {
-                    if (changeItem.title === item.parentNode.children[1].dataset.shoppingname) {
-                        changeItem['total'] = up;
-                        item.parentNode.children[1].value = up;
-
-                        // 把金額取出來使用
-                        // parseInt => 把參數變成字串
-                        originPrice = parseInt(changeItem.price)
-
-                    }
-                    return changeItem;
-                })
-
-                // 顯示的金額重新計算
-                console.log(item.parentNode.parentNode.children[1]);
-                item.parentNode.parentNode.children[1].innerHTML = `$${String(originPrice * up)}`;
-                calPrice();
-            })
-        })
-
     </script>
 
     <script>
-
         function calPrice() {
 
             // 總金額的計算
