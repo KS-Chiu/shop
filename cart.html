@@ -303,7 +303,6 @@
     <script>
         let shoppingData = JSON.parse(localStorage.getItem('smallcards'))
         let shoppingArr = JSON.parse(localStorage.getItem('shopping'))
-        console.log(shoppingData, shoppingArr);
 
         let nowshopping = shoppingData.filter((item) => {
             item['total'] = 1
@@ -313,6 +312,7 @@
         })
 
         const shoppingList = document.querySelector('#shopping-list')
+        
         nowshopping.forEach((item) => {
             shoppingList.innerHTML += `
                      <div class="row my-5 fs-5 w-100">
@@ -365,7 +365,7 @@
                 })
                 console.log(nowshopping);
                 item.parentNode.parentNode.children[1].innerHTML = `$${String(originPrice * down)}`;
-                calPrice()
+                calPrice();
             })
         })
 
@@ -392,7 +392,7 @@
                 // 顯示的金額重新計算
                 console.log(item.parentNode.parentNode.children[1]);
                 item.parentNode.parentNode.children[1].innerHTML = `$${String(originPrice * up)}`;
-                calPrice()
+                calPrice();
             })
         })
 
