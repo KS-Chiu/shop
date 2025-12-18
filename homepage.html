@@ -579,42 +579,50 @@
             {
                 'img': './img/8-1.webp',
                 'title': '三配色橫帶露趾後帶平底涼鞋',
-                'describe': '圓楦設計、三配色橫帶、可調皮帶、穿釦X勾釦、泡棉夾心鞋墊'
+                'describe': '圓楦設計、三配色橫帶、可調皮帶、穿釦X勾釦、泡棉夾心鞋墊',
+                'price':'1234'
             },
             {
                 'img': './img/8-2.webp',
                 'title': '羊皮套趾扭結澎澎軟芯拖鞋',
-                'describe': '光澤羊皮鞋面、方頭鞋楦、套趾設計、澎澎軟芯鞋墊'
+                'describe': '光澤羊皮鞋面、方頭鞋楦、套趾設計、澎澎軟芯鞋墊',
+                'price':'1235'
             },
             {
                 'img': './img/8-3.webp',
                 'title': '鏤空交叉雙帶繫帶坡跟涼鞋',
-                'describe': '橢圓頭鞋楦、交叉雙細帶、魔鬼氈設計、鞋墊彈力乳膠夾心'
+                'describe': '橢圓頭鞋楦、交叉雙細帶、魔鬼氈設計、鞋墊彈力乳膠夾心',
+                'price':'1236'
             },
             {
                 'img': './img/8-4.webp',
                 'title': '牛皮交錯寬版橫帶橢圓頭平底涼鞋',
-                'describe': '頂級牛皮鞋面、橢圓頭鞋楦、簡約交錯橫帶、可調式S勾釦、泡棉夾心鞋墊'
+                'describe': '頂級牛皮鞋面、橢圓頭鞋楦、簡約交錯橫帶、可調式S勾釦、泡棉夾心鞋墊',
+                'price':'1237'
             },
             {
                 'img': './img/8-5.webp',
                 'title': '全真皮雙色細帶方頭繫帶粗跟涼鞋',
-                'describe': '高級全真皮、方頭鞋楦、雙色細帶、可調式S勾釦、透氣真皮鞋墊'
+                'describe': '高級全真皮、方頭鞋楦、雙色細帶、可調式S勾釦、透氣真皮鞋墊',
+                'price':'1238'
             },
             {
                 'img': './img/8-6.webp',
                 'title': '全真皮交錯線條方頭後帶粗跟涼鞋',
-                'describe': '高級全真皮、方頭鞋楦、交錯線條設計、可調式S勾釦、透氣真皮鞋墊'
+                'describe': '高級全真皮、方頭鞋楦、交錯線條設計、可調式S勾釦、透氣真皮鞋墊',
+                'price':'1239'
             },
             {
                 'img': './img/8-7.webp',
                 'title': '鏤空編織澎澎軟芯繫帶粗跟涼鞋',
-                'describe': 'HERLS獨家訂製楦型、橢圓頭鞋楦、鏤空編織鞋面、拼接一字帶、可調式S勾釦、軟芯真皮鞋墊'
+                'describe': 'HERLS獨家訂製楦型、橢圓頭鞋楦、鏤空編織鞋面、拼接一字帶、可調式S勾釦、軟芯真皮鞋墊',
+                'price':'1240'
             },
             {
                 'img': './img/8-8.webp',
                 'title': '波紋織布拼接寬帶露趾繫帶平底涼鞋',
-                'describe': '時髦方楦、波紋織布拼接、一字寬帶、可調式S勾釦、乳膠夾心鞋墊'
+                'describe': '時髦方楦、波紋織布拼接、一字寬帶、可調式S勾釦、乳膠夾心鞋墊',
+                'price':'1241'
             },
         ];
         console.log(smallcards);
@@ -628,7 +636,7 @@
                     <div class="card h-100">
                         <img src="${item.img}" class="card-img-top" alt="...">
                         <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">${item.title}</h5>
+                            <h5 class="card-title">${item.title}$${item.price}</h5>
                             <p class="card-text flex-fill">${item.describe}</p>
                             <button type="button" class="shopping-btn btn btn-warning" data-shoppingname="${item.title}">加入購物車</button>
                         </div>
